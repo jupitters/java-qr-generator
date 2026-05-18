@@ -28,6 +28,11 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+<<<<<<< HEAD
+=======
+		<google.zxing.vesion>3.5.2</google.zxing.vesion>
+		<aws.sdk.version>2.24.12</aws.sdk.version>
+>>>>>>> ed600bf (init)
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +45,27 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>s3</artifactId>
+			<version>${aws.sdk.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>${google.zxing.vesion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>${google.zxing.vesion}</version>
+		</dependency>
+>>>>>>> ed600bf (init)
 	</dependencies>
 
 	<build>
