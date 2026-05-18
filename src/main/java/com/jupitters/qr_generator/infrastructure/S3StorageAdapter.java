@@ -10,7 +10,9 @@ public class S3StorageAdapter implements StoragePort {
     private final String region;
 
     public S3StorageAdapter(S3Client s3Client, @Value("${aws.s3.bucket-name}") String bucketName, @Value("${aws.s3.region}") String region) {
-        this.s3Client = s3Client;
+        this.s3Client = S3Client.builder()
+                .region(software.amazon.awssdk.regions.Region.of(region))
+                .build();
         this.bucketName = bucketName;
         this.region = region;
     }
