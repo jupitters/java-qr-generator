@@ -1,5 +1,7 @@
 package com.jupitters.qr_generator.controller;
 
+import com.jupitters.qr_generator.dto.QrCodeGenerateRequest;
+import com.jupitters.qr_generator.dto.QrCodeGenerateResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/qrcode")
 public class QrCodeController {
     @PostMapping
-    public ResponseEntity<> generate(@RequestBody) {
-
+    public ResponseEntity<QrCodeGenerateResponse> generate(@RequestBody QrCodeGenerateRequest request) {
+        return null;
     }
 }
