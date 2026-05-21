@@ -2,7 +2,9 @@ package com.jupitters.qr_generator.infrastructure;
 
 import com.jupitters.qr_generator.ports.StoragePort;
 import org.springframework.beans.factory.annotation.Value;
+import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 public class S3StorageAdapter implements StoragePort {
     private final S3Client s3Client;
@@ -19,6 +21,13 @@ public class S3StorageAdapter implements StoragePort {
 
     @Override
     public String uploadFile(byte[] fileData, String fileName, String contentType) {
-        return "";
+        PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(fileName)
+                .contentType(contentType)
+                .build();
+
+        s3Client.putObject(putObjectRequest, RequestBody.fromBytes(fileData));
+        return String.format("https://%s.s3.%s.amazonaws.com/%s", bucketName, region, fileName);
     }
 }
